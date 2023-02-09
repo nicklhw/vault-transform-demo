@@ -1,0 +1,42 @@
+version: '3.7'
+
+networks:
+  vault:
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.5.0.0/16"
+
+services:
+  vault:
+    image: hashicorp/vault-enterprise:latest
+    restart: always
+    volumes:
+      - ./vault:/vault/config:rw
+      - ./vault/audit_logs:/var/log/vault:rw
+      - /vault/data
+    ports:
+      - "8200:8200/tcp"
+    cap_add:
+      - IPC_LOCK
+    container_name: vault
+    entrypoint: "vault server -config=/vault/config"
+    environment:
+      - VAULT_LICENSE=${VAULT_LICENSE}
+    networks:
+      - vault
+  haproxy:
+    container_name: haproxy
+    hostname: kubernetes
+    image: haproxy:2.3
+    depends_on:
+      - vault
+    environment:
+      - BALANCE=roundrobin
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 9201:443
+      - 1936:1936
+    networks:
+      - vault
