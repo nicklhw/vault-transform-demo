@@ -25,18 +25,3 @@ services:
       - VAULT_LICENSE=${VAULT_LICENSE}
     networks:
       - vault
-  haproxy:
-    container_name: haproxy
-    hostname: kubernetes
-    image: haproxy:2.3
-    depends_on:
-      - vault
-    environment:
-      - BALANCE=roundrobin
-    volumes:
-      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
-    ports:
-      - 9201:443
-      - 1936:1936
-    networks:
-      - vault
