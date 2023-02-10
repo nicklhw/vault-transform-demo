@@ -28,7 +28,7 @@ vault policy write admin ./admin_policy.hcl
 
 tput setaf 12 && echo "############## Enable userpass auth on Vault ##############"
 
-vault auth enable userpass
+vault auth enable -max-lease-ttl=1h userpass
 
 vault write auth/userpass/users/admin password="passw0rd" policies="admin"
 
