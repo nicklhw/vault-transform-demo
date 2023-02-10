@@ -22,3 +22,7 @@ describe users_tokenization;
 ```
 
 # Reference
+- [Vault Transform Demo](https://github.com/tkaburagi/vault-transformation-demo/tree/master)
+- [Vault Transform Tutorial](https://developer.hashicorp.com/vault/tutorials/adp/transform)
+- [Vault Tokenization Tutorial](https://developer.hashicorp.com/vault/tutorials/adp/tokenization)
+- [Vault Transform Secrets Engine API](https://developer.hashicorp.com/vault/api-docs/secret/transform#transform-secrets-engine-api)
