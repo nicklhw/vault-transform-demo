@@ -7,7 +7,7 @@ all: clean up-detach init
 
 up-detach:
 	cd docker-compose \
-	  && docker-compose up --detach --remove-orphans
+	  && docker-compose --profile backend up --detach
 
 init:
 	cd docker-compose/scripts \
@@ -15,7 +15,7 @@ init:
 
 clean:
 	cd docker-compose \
-	&& docker-compose down --volumes \
+	&& docker-compose down --volumes --remove-orphans \
 	&& rm -f ./scripts/vault.json
 
 show-members:

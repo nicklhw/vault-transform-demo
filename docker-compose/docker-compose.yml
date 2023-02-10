@@ -1,7 +1,7 @@
 version: '3.7'
 
 networks:
-  vault:
+  vault-demo:
     ipam:
       driver: default
       config:
@@ -9,6 +9,7 @@ networks:
 
 services:
   vault:
+    profiles: ["backend"]
     image: hashicorp/vault-enterprise:latest
     restart: always
     volumes:
@@ -24,8 +25,9 @@ services:
     environment:
       - VAULT_LICENSE=${VAULT_LICENSE}
     networks:
-      - vault
+      - vault-demo
   mysql:
+    profiles: ["backend"]
     image: mysql:8
     container_name: mysql
     restart: always
@@ -35,17 +37,36 @@ services:
       - MYSQL_DATABASE=demo
       - MYSQL_ROOT_PASSWORD=passw0rd
     networks:
-      - vault
+      - vault-demo
+  vault-agent:
+    profiles: ["frontend"]
+    image: hashicorp/vault-enterprise:latest
+    restart: always
+    depends_on: [ vault ]
+    volumes:
+      - ./vault-agent/:/vault/config
+    ports:
+      - "8100:8100/tcp"
+    cap_add:
+      - IPC_LOCK
+    container_name: vault-agent
+    entrypoint: "vault agent -config=/vault/config/agent.hcl"
+    environment:
+      - VAULT_LICENSE=${VAULT_LICENSE}
+    networks:
+      - vault-demo
   transform-demo-api:
+    profiles: ["frontend"]
     image: nicklhw/transform-demo-api
     container_name: transform-demo-api
     restart: always
+    depends_on: [vault-agent]
     build:
       context: ../demo-api
     ports:
       - "8080:8080"
     networks:
-      - vault
+      - vault-demo
 
 
 

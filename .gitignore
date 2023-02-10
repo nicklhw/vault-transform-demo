@@ -34,6 +34,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+role_id
+secret_id
+token
 .idea
 /demo-api/target
 
