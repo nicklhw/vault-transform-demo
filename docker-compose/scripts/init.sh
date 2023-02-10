@@ -58,6 +58,8 @@ tput setaf 12 && echo "############## Setup Transform secret engine ############
 
 vault secrets enable transform
 
+vault write transform/role/payments transformations=creditcard-numeric
+
 vault write transform/transformation/creditcard-numeric \
 type=fpe \
 template=builtin/creditcardnumber \
