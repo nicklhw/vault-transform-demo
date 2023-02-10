@@ -29,8 +29,8 @@ services:
     image: mysql:8
     container_name: mysql
     restart: always
-#    volumes:
-#      - ./mysql/data:/var/lib/mysql
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - MYSQL_DATABASE=demo
       - MYSQL_ROOT_PASSWORD=passw0rd
