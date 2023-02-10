@@ -26,12 +26,15 @@ logs:
     && docker-compose logs -f
 
 ui:
-	open http://localhost:8200
+	open http://localhost:8080
 
-build-app:
-	cd app \
+build-api:
+	cd demo-api \
 	&& ./mvnw clean package
 
-run-app:
-	cd app \
+run-api:
+	cd demo-api \
 	&& java -jar target/transformdemo-0.0.1-SNAPSHOT.jar
+
+build-docker-api:
+	docker build -t nicklhw/transform-demo-api -f demo-api/Dockerfile ./demo-api
