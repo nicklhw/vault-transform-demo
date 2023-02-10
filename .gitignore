@@ -35,6 +35,7 @@ override.tf.json
 terraform.rc
 
 .idea
+/app/target
 
 /docker-compose/scripts/vault.json
 /docker-compose/vault/audit_logs

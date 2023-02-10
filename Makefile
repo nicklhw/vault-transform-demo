@@ -27,3 +27,11 @@ logs:
 
 ui:
 	open http://localhost:8200
+
+build-app:
+	cd app \
+	&& ./mvnw clean package
+
+run-app:
+	cd app \
+	&& java -jar target/transformdemo-0.0.1-SNAPSHOT.jar
