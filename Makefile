@@ -34,7 +34,7 @@ build-api:
 
 run-api:
 	cd demo-api \
-	&& java -jar target/transformdemo-0.0.1-SNAPSHOT.jar
+	&& ./mvnw spring-boot:run
 
 build-docker-api:
 	docker build -t nicklhw/transform-demo-api -f demo-api/Dockerfile ./demo-api

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: vault-transform-demo
+  cloud.vault:
+      authentication: NONE
+      host: localhost
+      port: 8100
+      scheme: http
+      kv.enabled: false
+      database:
+        enabled: true
+        role: demoapp
+        backend: database
+        username-property: spring.datasource.username
+        password-property: spring.datasource.password

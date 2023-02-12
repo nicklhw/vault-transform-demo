@@ -27,3 +27,4 @@ describe users_tokenization;
 - [Vault Tokenization Tutorial](https://developer.hashicorp.com/vault/tutorials/adp/tokenization)
 - [Vault Transform Secrets Engine API](https://developer.hashicorp.com/vault/api-docs/secret/transform#transform-secrets-engine-api)
 - [Vault Demo by Nicholas Jackson](https://github.com/nicholasjackson/demo-vault)
+- [Spring Cloud Vault](https://cloud.spring.io/spring-cloud-vault/reference/html/#_quick_start)
