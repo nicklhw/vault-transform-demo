@@ -75,7 +75,7 @@ public class TransformUtil {
 
         HttpEntity<Map<String, Object>> entity = new HttpEntity<>(input, headers);
 
-        ResponseEntity<String> response = this.restTemplate().postForEntity(String.format("http://%s:8100/v1/transform/encode/payments-masking", vaultHost), entity, String.class);
+        ResponseEntity<String> response = this.restTemplate().postForEntity(String.format("http://%s:8100/v1/transform/encode/payments", vaultHost), entity, String.class);
         JSONObject jsonObject = new JSONObject(response.getBody());
 
         return jsonObject.getJSONObject("data").getString("encoded_value");

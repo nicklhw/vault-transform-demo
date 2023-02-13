@@ -64,7 +64,8 @@ tput setaf 12 && echo "############## Setup Transform secret engine ############
 
 vault secrets enable transform
 
-vault write transform/role/payments transformations=creditcard-numeric,email-exdomain
+vault write transform/role/payments \
+transformations=creditcard-numeric,creditcard-numericupper,creditcard-symbolnumericalpha,email,email-exdomain,ccn-masking
 
 vault write transform/transformation/creditcard-numeric \
 type=fpe \
@@ -72,18 +73,65 @@ template=builtin/creditcardnumber \
 allowed_roles=payments \
 tweak_source=internal
 
+vault write transform/template/creditcard-to-numericandupper \
+type=regex \
+pattern='([0-9A-Z]{4})-([0-9A-Z]{4})-([0-9A-Z]{4})-([0-9A-Z]{4})' \
+alphabet=builtin/alphanumericupper
+
+vault write transform/transformation/creditcard-numericupper \
+type=fpe \
+template=creditcard-to-numericandupper \
+tweak_source=internal \
+allowed_roles=payments
+
+vault write transform/alphabet/symbolnumericalpha \
+alphabet="0123456789._%+~#@&/,=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+vault write transform/template/creditcard-to-symbolnumericalpha \
+type=regex \
+pattern='([0-9A-Za-z._%+~#@&/,=$]{4})-([0-9A-Za-z._%+~#@&/,=$]{4})-([0-9A-Za-z._%+~#@&/,=$]{4})-([0-9A-Za-z._%+~#@&/,=$]{4})' \
+alphabet=symbolnumericalpha
+
+vault write transform/transformation/creditcard-symbolnumericalpha \
+type=fpe \
+template=creditcard-to-symbolnumericalpha \
+tweak_source=internal \
+allowed_roles=payments
+
 vault write transform/alphabet/localemailaddress \
-alphabet=".@0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet=".0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 vault write transform/template/email-exdomain \
-type=regex \
-pattern='.([0-9A-Za-z]{1,100})@.*' \
-alphabet=localemailaddress
+alphabet=localemailaddress \
+pattern='^([\w-\.]+)@[\w-]+\.+[\w-]{2,4}$' \
+type=regex
 
 vault write transform/transformation/email-exdomain \
 type=fpe \
 template=email-exdomain \
 allowed_roles=payments \
 tweak_source=internal
+
+vault write transform/template/email-template \
+alphabet=localemailaddress \
+pattern='^([\w-\.]+)@([\w-]+)\.+([\w-]{2,4})$' \
+type=regex
+
+vault write transform/transformation/email \
+type=fpe \
+template=email-template \
+allowed_roles=payments \
+tweak_source=internal
+
+vault write transform/template/ccn-masking \
+type=regex \
+pattern='\d\d\d\d-\d\d(\d{2}|[A-Z]{4})-(\d{4}|[A-Z]{4})-\d\d\d\d' \
+alphabet=builtin/alphanumericupper
+
+vault write transform/transformation/ccn-masking \
+type=masking \
+template=ccn-masking \
+masking_character=# \
+allowed_roles=payments
 
 tput setaf 12 && echo "############## Please Run: export VAULT_TOKEN=${VAULT_TOKEN} ##############"
