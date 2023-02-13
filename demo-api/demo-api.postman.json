@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "087590e7-4747-4f75-b49d-6d600fe3e7cd",
+		"name": "Vault Transform Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "381353"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-all-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-all-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decryt User - Transit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-all-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-all-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Simplest Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=dennis&flag=simplest-transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "dennis"
+						},
+						{
+							"key": "flag",
+							"value": "simplest-transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Simple Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=john&flag=simple-transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "john"
+						},
+						{
+							"key": "flag",
+							"value": "simple-transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=jane&flag=transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jane"
+						},
+						{
+							"key": "flag",
+							"value": "transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Simplest Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-simplest-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-simplest-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Simple Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-simple-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-simple-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Transit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-encrypted-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-encrypted-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Transit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/transit/add-user?username=nickwong&password=secret&email=nick.wong@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transit",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "nickwong"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "nick.wong@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Simplest Transform",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/simplest-transformation/add-user?username=dennis&password=secret&email=dennis.chan@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"simplest-transformation",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "dennis"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "dennis.chan@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Simple Transform",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/simple-transformation/add-user?username=john&password=secret&email=john.doe@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"simple-transformation",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "john"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "john.doe@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Transform",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/transformation/add-user?username=jane&password=secret&email=jane.morris@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transformation",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jane"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "jane.morris@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
