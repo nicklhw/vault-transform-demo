@@ -19,6 +19,14 @@ mysql -uroot -ppassw0rd
 use demo;
 describe users_tokenization;
 
+# build demo-api spring boot app
+make build-api
+
+# run demo-api spring boot app locally
+make run-api
+
+# build demo-api app docker image
+make build-docker-api
 ```
 
 # Reference
