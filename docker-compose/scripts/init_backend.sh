@@ -54,15 +54,35 @@ allowed_roles="demoapp" \
 username="root" \
 password="passw0rd"
 
+tput setaf 12 && echo "############## Setup Transit secret engine ##############"
+
+vault secrets enable transit
+
+vault write -f transit/keys/my-key
+
 tput setaf 12 && echo "############## Setup Transform secret engine ##############"
 
 vault secrets enable transform
 
-vault write transform/role/payments transformations=creditcard-numeric
+vault write transform/role/payments transformations=creditcard-numeric,email-exdomain
 
 vault write transform/transformation/creditcard-numeric \
 type=fpe \
 template=builtin/creditcardnumber \
+allowed_roles=payments \
+tweak_source=internal
+
+vault write transform/alphabet/localemailaddress \
+alphabet=".@0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+vault write transform/template/email-exdomain \
+type=regex \
+pattern='.([0-9A-Za-z]{1,100})@.*' \
+alphabet=localemailaddress
+
+vault write transform/transformation/email-exdomain \
+type=fpe \
+template=email-exdomain \
 allowed_roles=payments \
 tweak_source=internal
 
