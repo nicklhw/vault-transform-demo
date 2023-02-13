@@ -67,7 +67,10 @@ services:
       context: ../demo-api
     ports:
       - "8081:8080"
-    entrypoint: "java -jar /app/transformdemo-0.0.1-SNAPSHOT.jar --spring.cloud.vault.host=vault-agent --spring.datasource.url=jdbc:mysql://mysql:3306/demo?allowPublicKeyRetrieval=true&useSSL=false"
+    environment:
+      - SPRING_CLOUD_VAULT_HOST=vault-agent
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo?allowPublicKeyRetrieval=true&useSSL=false
+    entrypoint: "java -jar /app/transformdemo-0.0.1-SNAPSHOT.jar"
     networks:
       - vault-demo
 
