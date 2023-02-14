@@ -10,6 +10,6 @@ FROM openjdk:17
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=build /src/target/transformdemo-0.0.1-SNAPSHOT.jar /app/transformdemo-0.0.1-SNAPSHOT.jar
+COPY --from=build /src/target/transform-demo-api-0.0.1-SNAPSHOT.jar /app/transform-demo-api-0.0.1-SNAPSHOT.jar
 
-ENTRYPOINT ["java", "-jar", "/app/transformdemo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/transform-demo-api-0.0.1-SNAPSHOT.jar"]

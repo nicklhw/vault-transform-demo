@@ -70,7 +70,7 @@ services:
     environment:
       - SPRING_CLOUD_VAULT_HOST=vault-agent
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo?allowPublicKeyRetrieval=true&useSSL=false
-    entrypoint: "java -jar /app/transformdemo-0.0.1-SNAPSHOT.jar"
+    entrypoint: "java -jar /app/transform-demo-api-0.0.1-SNAPSHOT.jar"
     networks:
       - vault-demo
 
