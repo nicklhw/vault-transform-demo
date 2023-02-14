@@ -1,3 +1,5 @@
 spring:
   application:
     name: vault-transform-demo-ui
+server:
+  port: 7070

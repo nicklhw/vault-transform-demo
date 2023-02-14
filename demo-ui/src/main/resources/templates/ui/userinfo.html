@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" />
+    <script src="https://kit.fontawesome.com/cfad4d1391.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:700'
+          rel='stylesheet' type='text/css' />
+    <style type="text/css">
+        table {
+            width: 1500px;
+        }
+
+        div.ta0 {
+            text-align: left;
+            align-items: center;
+        }
+
+
+        .logo {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .button-warning {
+            position: absolute;
+            left: 5%;
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            width: 190px;
+            height: 40px;
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        ul {
+            width:400px;
+        }
+
+        ul li {
+            float:left;
+            width:200px;
+            margin-top: 5px;
+        }
+
+        .my-parts ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .my-parts ul li a {
+            display: block;
+            text-decoration: none;
+            background: #fff;
+            color: #333;
+            text-align: left;
+            margin-top: 0px;
+        }
+
+    </style>
+
+
+    <meta charset="UTF-8" />
+    <title>HashiCorp Vault Demo</title>
+</head>
+<body>
+<div class="ta0" style="margin:50px;">
+    <th:block th:each="userinfo : ${userinfo}" >
+        <h2 class="logo"><p th:text="|${userinfo.username}'s Personal Information|"></p> </h2>
+        <table class="pure-table pure-table-striped table logo" style="width:90%">
+            <thead>
+            <tr>
+                <th class="center">Parameter</th>
+                <th class="center">Your Data</th>
+            </tr>
+            </thead>
+            <tr>
+                <td><p>Username</p></td>
+                <td th:text="${userinfo.username}" />
+            </tr>
+            <tr>
+                <td><p>Email Address</p></td>
+                <td th:text="${userinfo.email}" />
+            </tr>
+            <tr>
+                <td><p>Credit Card Number</p></td>
+                <td th:text="${userinfo.creditcard}" />
+            </tr>
+    </th:block>
+    </table>
+</div>
+
+<button type="submit" class="button-warning pure-button">
+    <font class="logo">Close</font></button>
+</body>
+</html>
