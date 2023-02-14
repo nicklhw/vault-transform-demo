@@ -39,6 +39,7 @@ secret_id
 token
 .idea
 /demo-api/target
+/demo-ui/target
 
 /docker-compose/scripts/vault.json
 /docker-compose/vault/audit_logs

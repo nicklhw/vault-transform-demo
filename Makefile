@@ -32,8 +32,16 @@ build-api:
 	cd demo-api \
 	&& ./mvnw clean package
 
+build-ui:
+	cd demo-ui \
+	&& ./mvnw clean package
+
 run-api:
 	cd demo-api \
+	&& ./mvnw spring-boot:run
+
+run-ui:
+	cd demo-ui \
 	&& ./mvnw spring-boot:run
 
 build-docker-api:
