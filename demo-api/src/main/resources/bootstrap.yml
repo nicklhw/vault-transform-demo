@@ -1,6 +1,6 @@
 spring:
   application:
-    name: vault-transform-demo
+    name: vault-transform-demo-api
   cloud.vault:
       authentication: NONE
       host: localhost
