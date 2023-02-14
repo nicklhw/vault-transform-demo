@@ -60,12 +60,12 @@ vault secrets enable transit
 
 vault write -f transit/keys/my-key
 
-tput setaf 12 && echo "############## Setup Transform secret engine ##############"
+tput setaf 12 && echo "############## Setup Transform secret engine for FPE ##############"
 
 vault secrets enable transform
 
 vault write transform/role/payments \
-transformations=creditcard-numeric,creditcard-numericupper,creditcard-symbolnumericalpha,email,email-exdomain,ccn-masking
+transformations=creditcard-numeric,creditcard-numericupper,creditcard-symbolnumericalpha,email,email-exdomain,ccn-masking,credit-card-tokenization
 
 vault write transform/transformation/creditcard-numeric \
 type=fpe \
@@ -133,5 +133,22 @@ type=masking \
 template=ccn-masking \
 masking_character=# \
 allowed_roles=payments
+
+tput setaf 12 && echo "############## Setup Transform secret engine for Tokenization ##############"
+
+vault write transform/stores/mysql \
+type=sql \
+driver=mysql \
+supported_transformations=tokenization \
+connection_string='{{username}}:{{password}}@tcp(mysql:3306)/demo?parseTime=true' \
+username=root \
+password=passw0rd
+
+vault write transform/stores/mysql/schema transformation_type=tokenization \
+username=root password=passw0rd
+
+vault write transform/transformations/tokenization/credit-card-tokenization \
+allowed_roles=payments \
+stores=mysql
 
 tput setaf 12 && echo "############## Please Run: export VAULT_TOKEN=${VAULT_TOKEN} ##############"
