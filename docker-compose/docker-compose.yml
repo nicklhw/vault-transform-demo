@@ -73,6 +73,21 @@ services:
     entrypoint: "java -jar /app/transform-demo-api-0.0.1-SNAPSHOT.jar"
     networks:
       - vault-demo
+  transform-demo-ui:
+    profiles: [ "frontend" ]
+    image: nicklhw/transform-demo-ui
+    container_name: transform-demo-ui
+    restart: always
+    depends_on: [ transform-demo-api ]
+    build:
+      context: ../demo-ui
+    ports:
+      - "7071:7070"
+    environment:
+      - API_ADDRESS=http://transform-demo-api:8080
+    entrypoint: "java -jar /app/transform-demo-ui-0.0.1-SNAPSHOT.jar"
+    networks:
+      - vault-demo
 
 
 

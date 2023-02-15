@@ -46,3 +46,6 @@ run-ui:
 
 build-docker-api:
 	docker build -t nicklhw/transform-demo-api -f demo-api/Dockerfile ./demo-api
+
+build-docker-ui:
+	docker build -t nicklhw/transform-demo-ui -f demo-ui/Dockerfile ./demo-ui
