@@ -98,14 +98,9 @@
 
 <body>
 <div class="ta1">
-    <h1 class="logo">HashiCorp Vault Transformation Demo</h1>
-    <h1 class="logo">Happy Encryption!</h1>
+    <h1 class="logo">HashiCorp Vault Transform Secret Engine Demo</h1>
 </div>
 
-<div class="ta1">
-    <h2 class="logo">Input Plain Data (Please Do not use real data!)</h2>
-</div>
-<!--<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Sign in</button>-->
 <div align='center'>
     <form class="pure-form"  th:method="post" th:action="@{/encrypt}" th:object="${user}">
         <fieldset class="pure-group" >
@@ -118,19 +113,19 @@
             <ul>
                 <li>
                     <button type="submit" class="button-success pure-button" name='transit'>
-                        <i class="fa fa-key"></i><font class="logo"> Transit</font></button>
+                        <i class="fa fa-key"></i><font class="logo">Transit</font></button>
                 </li>
                 <li>
                     <button type="submit" class="button-warning pure-button" name='simplest-transformation'>
-                        <i class="fa fa-exchange"></i><font class="logo"> Simplest Transform</font></button>
+                        <i class="fa fa-exchange"></i><font class="logo">Basic Transform</font></button>
                 </li>
                 <li>
                     <button type="submit" class="button-warning pure-button" name='simple-transformation'>
-                        <i class="fa fa-exchange"></i><font class="logo"> Simple Transform</font></button>
+                        <i class="fa fa-exchange"></i><font class="logo">Partial Transform</font></button>
                 </li>
                 <li>
                     <button type="submit" class="button-warning pure-button" name='transformation'>
-                        <i class="fa fa-exchange"></i><font class="logo"> Transform</font></button>
+                        <i class="fa fa-exchange"></i><font class="logo">Full Transform</font></button>
                 </li>
             </ul>
         </div>
@@ -139,9 +134,10 @@
 
 <br>
 <br>
+<br>
 
 <div class="ta0" style="margin:50px;">
-    <h2 class="logo">Encrypted by Transit</h2>
+    <h2 class="logo">Transit Encryption</h2>
     <table class="pure-table pure-table-striped table logo">
         <thead>
         <tr>
@@ -171,7 +167,8 @@
 </div>
 
 <div class="ta0" style="margin:50px;">
-    <h2 class="logo">Simplest Encrypted by Transformation (Format Preserving Encryption)</h2>
+    <h2 class="logo">Basic FPE Transformation</h2>
+    <h3 class="logo">Builtin CC number transformation</h3>
     <table class="pure-table pure-table-striped table logo">
         <thead>
         <tr>
@@ -202,7 +199,8 @@
 </div>
 
 <div class="ta0" style="margin:50px;">
-    <h2 class="logo">Simply Encrypted by Transformation (Format Preserving Encryption)</h2>
+    <h2 class="logo">Partial FPE Transformation</h2>
+    <h3 class="logo">Partial email transformation and alphanumeric CC number transformation</h3>
     <table class="pure-table pure-table-striped table logo">
         <thead>
         <tr>
@@ -233,7 +231,8 @@
 </div>
 
 <div class="ta0" style="margin:50px;">
-    <h2 class="logo">Encrypted by Transformation (Format Preserving Encryption)</h2>
+    <h2 class="logo">Full FPE Transformation</h2>
+    <h3 class="logo">Complete email transformation and alphanumeric + special character CC number transformation</h3>
     <table class="pure-table pure-table-striped table logo">
         <thead>
         <tr>
