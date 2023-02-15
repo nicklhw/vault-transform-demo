@@ -92,7 +92,7 @@ public class TransformController {
         u = new ApiAppUtil().userSetup(
                 username,
                 transitUtil.encrypt(password),
-                transformUtil.encode(email, "email-exdomain"),
+                email,
                 transformUtil.encode(creditcard, "creditcard-numeric"),
                 "simplest-transformation"
         );
@@ -126,7 +126,7 @@ public class TransformController {
             String str = transformUtil.decode(u.getCreditcard(), "creditcard-numericupper");
             decodedUser.put("creditcard", transformUtil.masking(str, "ccn-masking"));
         } else if (flag.equals("simplest-transformation")) {
-            decodedUser.put("email", transformUtil.decode(u.getEmail(), "email-exdomain"));
+            decodedUser.put("email", u.getEmail());
             String str = transformUtil.decode(u.getCreditcard(), "creditcard-numeric");
             decodedUser.put("creditcard", transformUtil.masking(str, "ccn-masking"));
         }

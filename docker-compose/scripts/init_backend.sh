@@ -103,7 +103,7 @@ alphabet=".0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 vault write transform/template/email-exdomain \
 alphabet=localemailaddress \
-pattern='^([\w-\.]+)@[\w-]+\.+[\w-]{2,4}$' \
+pattern='^([\w-\.]+)@[\w-\.]+\.+[\w-\.]{2,4}$' \
 type=regex
 
 vault write transform/transformation/email-exdomain \
@@ -114,7 +114,7 @@ tweak_source=internal
 
 vault write transform/template/email-template \
 alphabet=localemailaddress \
-pattern='^([\w-\.]+)@([\w-]+)\.+([\w-]{2,4})$' \
+pattern='^([\w-\.]+)@([\w-\.]+)\.+([\w-\.]{2,4})$' \
 type=regex
 
 vault write transform/transformation/email \
