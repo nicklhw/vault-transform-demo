@@ -125,7 +125,7 @@ tweak_source=internal
 
 vault write transform/template/ccn-masking \
 type=regex \
-pattern='\d\d\d\d-\d\d(\d{2}|[A-Z]{4})-(\d{4}|[A-Z]{4})-\d\d\d\d' \
+pattern='\d\d\d\d-\d\d\d\d-\d\d(\d{2}|[A-Z]{4})-(\d{4}|[A-Z]{4})' \
 alphabet=builtin/alphanumericupper
 
 vault write transform/transformation/ccn-masking \

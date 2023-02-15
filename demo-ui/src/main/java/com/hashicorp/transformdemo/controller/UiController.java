@@ -23,6 +23,8 @@ public class UiController {
         model.addAttribute("tusers", this.uiService.getTransformedUsers());
         model.addAttribute("stusers", this.uiService.getSimpleTransformedUsers());
         model.addAttribute("stestusers", this.uiService.getSimplestTransformedUsers());
+        model.addAttribute("dtusers", this.uiService.getDefaultTokenizationUsers());
+        model.addAttribute("ctusers", this.uiService.getConvergentTokenizationUsers());
         return "ui/index";
     }
 
@@ -38,6 +40,10 @@ public class UiController {
             howto = "simple-transformation";
         } else if (request.getParameter("simplest-transformation") != null) {
             howto = "simplest-transformation";
+        } else if (request.getParameter("default-tokenization") != null) {
+            howto = "default-tokenization";
+        } else if (request.getParameter("convergent-tokenization") != null) {
+            howto = "convergent-tokenization";
         }
         this.uiService.addOneEncryptedUser(
                 request.getParameter("username"),

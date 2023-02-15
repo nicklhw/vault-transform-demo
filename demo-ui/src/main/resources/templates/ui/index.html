@@ -66,7 +66,7 @@
         }
 
         ul {
-            width:400px;
+            width:600px;
         }
 
         ul li {
@@ -126,6 +126,14 @@
                 <li>
                     <button type="submit" class="button-warning pure-button" name='transformation'>
                         <i class="fa fa-exchange"></i><font class="logo">Full FPE</font></button>
+                </li>
+                <li>
+                    <button type="submit" class="button-warning pure-button" name='default-tokenization'>
+                        <i class="fa fa-exchange"></i><font class="logo">Default Token</font></button>
+                </li>
+                <li>
+                    <button type="submit" class="button-warning pure-button" name='convergent-tokenization'>
+                        <i class="fa fa-exchange"></i><font class="logo">Convergent Token</font></button>
                 </li>
             </ul>
         </div>
@@ -257,6 +265,70 @@
                 <td th:text="${tusers.email}" />
                 <td th:text="${tusers.creditcard}" />
                 <td th:text="${tusers.password}" />
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+<div class="ta0" style="margin:50px;">
+    <h2 class="logo">Default Tokenization</h2>
+    <h3 class="logo">Default tokenization of email and CC number</h3>
+    <table class="pure-table pure-table-striped table logo">
+        <thead>
+        <tr>
+            <th>Decode</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Credit Card</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <th:block th:each="dtusers : ${dtusers}">
+            <tr>
+                <td width="10">
+                    <form class="pure-form" th:method="post" th:action="@{/decode}" th:object="${dtusers}">
+                        <input type="hidden" name="username" th:value="${dtusers.username}" />
+                        <input type="hidden" name="flag" th:value="default-tokenization" />
+                        <button type="submit" class="button-table-2 pure-button" name='decode' onclick=''>
+                            <i class="fas fa-angle-right"></i></button>
+                    </form>
+                </td>
+                <td th:text="${dtusers.username}" />
+                <td th:text="${dtusers.email}" />
+                <td th:text="${dtusers.creditcard}" />
+                <td th:text="${dtusers.password}" />
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+<div class="ta0" style="margin:50px;">
+    <h2 class="logo">Convergent Tokenization</h2>
+    <h3 class="logo">Convergent tokenization of email and CC number</h3>
+    <table class="pure-table pure-table-striped table logo">
+        <thead>
+        <tr>
+            <th>Decode</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Credit Card</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <th:block th:each="ctusers : ${ctusers}">
+            <tr>
+                <td width="10">
+                    <form class="pure-form" th:method="post" th:action="@{/decode}" th:object="${ctusers}">
+                        <input type="hidden" name="username" th:value="${ctusers.username}" />
+                        <input type="hidden" name="flag" th:value="convergent-tokenization" />
+                        <button type="submit" class="button-table-2 pure-button" name='decode' onclick=''>
+                            <i class="fas fa-angle-right"></i></button>
+                    </form>
+                </td>
+                <td th:text="${ctusers.username}" />
+                <td th:text="${ctusers.email}" />
+                <td th:text="${ctusers.creditcard}" />
+                <td th:text="${ctusers.password}" />
             </tr>
         </th:block>
     </table>

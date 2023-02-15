@@ -43,7 +43,6 @@ public class UiService {
         return userList;
     }
 
-
     public User[] getSimplestTransformedUsers() throws Exception {
         String result = this.restTemplate.getForObject(apiAddress + "/api/v1/get-simplest-transformed-users", String.class);
 
@@ -54,6 +53,20 @@ public class UiService {
 
     public User[] getEncryptedUsers() throws Exception {
         String result = this.restTemplate.getForObject(apiAddress + "/api/v1/get-encrypted-users", String.class);
+
+        User[] userList = this.objectMapper.readValue(result, User[].class);
+        return userList;
+    }
+
+    public User[] getDefaultTokenizationUsers() throws Exception {
+        String result = this.restTemplate.getForObject(apiAddress + "/api/v1/get-default-tokenization-users", String.class);
+
+        User[] userList = this.objectMapper.readValue(result, User[].class);
+        return userList;
+    }
+
+    public User[] getConvergentTokenizationUsers() throws Exception {
+        String result = this.restTemplate.getForObject(apiAddress + "/api/v1/get-convergent-tokenization-users", String.class);
 
         User[] userList = this.objectMapper.readValue(result, User[].class);
         return userList;
