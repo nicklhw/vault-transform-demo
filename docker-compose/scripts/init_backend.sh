@@ -65,7 +65,7 @@ tput setaf 12 && echo "############## Setup Transform secret engine for FPE ####
 vault secrets enable transform
 
 vault write transform/role/payments \
-transformations=creditcard-numeric,creditcard-numericupper,creditcard-symbolnumericalpha,email,email-exdomain,ccn-masking,credit-card-tokenization
+transformations=creditcard-numeric,creditcard-numericupper,creditcard-symbolnumericalpha,email,email-exdomain,ccn-masking,default-tokenization,convergent-tokenization
 
 vault write transform/transformation/creditcard-numeric \
 type=fpe \
@@ -147,8 +147,13 @@ password=passw0rd
 vault write transform/stores/mysql/schema transformation_type=tokenization \
 username=root password=passw0rd
 
-vault write transform/transformations/tokenization/credit-card-tokenization \
+vault write transform/transformations/tokenization/default-tokenization \
 allowed_roles=payments \
+stores=mysql
+
+vault write transform/transformations/tokenization/convergent-tokenization \
+allowed_roles=payments \
+convergent=true
 stores=mysql
 
 tput setaf 12 && echo "############## Please Run: export VAULT_TOKEN=${VAULT_TOKEN} ##############"

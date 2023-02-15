@@ -44,6 +44,16 @@ public class TransformController {
         return userJpaRepository.findUsersByFlag("simplest-transformation");
     }
 
+    @GetMapping(value = "/api/v1/get-default-tokenization-users")
+    public Object getDefaultTokenizedUsers() {
+        return userJpaRepository.findUsersByFlag("default-tokenization");
+    }
+
+    @GetMapping(value = "/api/v1/get-convergent-tokenization-users")
+    public Object getConvergentTokenizedUsers() {
+        return userJpaRepository.findUsersByFlag("convergent-tokenization");
+    }
+
     @PostMapping(value = "/api/v1/transit/add-user")
     public Object addOneEncryptedUser(@RequestParam String username, String password, String email, String creditcard)  {
         TransitUtil transitUtil = new TransitUtil();
@@ -99,6 +109,34 @@ public class TransformController {
         return userJpaRepository.save(u);
     }
 
+    @PostMapping(value = "/api/v1/default-tokenization/add-user")
+    public Object addOneDefaultTokenizedUser(@RequestParam String username, String password, String email, String creditcard) {
+        TransitUtil transitUtil = new TransitUtil();
+        TransformUtil transformUtil = new TransformUtil();
+        u = new ApiAppUtil().userSetup(
+                username,
+                transitUtil.encrypt(password),
+                transformUtil.encode(email, "default-tokenization"),
+                transformUtil.encode(creditcard, "default-tokenization"),
+                "default-tokenization"
+        );
+        return userJpaRepository.save(u);
+    }
+
+    @PostMapping(value = "/api/v1/convergent-tokenization/add-user")
+    public Object addOneConvergentTokenizedUser(@RequestParam String username, String password, String email, String creditcard) {
+        TransitUtil transitUtil = new TransitUtil();
+        TransformUtil transformUtil = new TransformUtil();
+        u = new ApiAppUtil().userSetup(
+                username,
+                transitUtil.encrypt(password),
+                transformUtil.encode(email, "convergent-tokenization"),
+                transformUtil.encode(creditcard, "convergent-tokenization"),
+                "convergent-tokenization"
+        );
+        return userJpaRepository.save(u);
+    }
+
     @RequestMapping(value = "/api/v1/decrypt")
     public Object decryptOneUser(@RequestParam String username){
         TransitUtil transitUtil = new TransitUtil();
@@ -128,6 +166,14 @@ public class TransformController {
         } else if (flag.equals("simplest-transformation")) {
             decodedUser.put("email", u.getEmail());
             String str = transformUtil.decode(u.getCreditcard(), "creditcard-numeric");
+            decodedUser.put("creditcard", transformUtil.masking(str, "ccn-masking"));
+        } else if (flag.equals("default-tokenization")) {
+            decodedUser.put("email", transformUtil.decode(u.getEmail(), "default-tokenization"));
+            String str = transformUtil.decode(u.getCreditcard(), "default-tokenization");
+            decodedUser.put("creditcard", transformUtil.masking(str, "ccn-masking"));
+        } else if (flag.equals("convergent-tokenization")) {
+            decodedUser.put("email", transformUtil.decode(u.getEmail(), "convergent-tokenization"));
+            String str = transformUtil.decode(u.getCreditcard(), "convergent-tokenization");
             decodedUser.put("creditcard", transformUtil.masking(str, "ccn-masking"));
         }
         return decodedUser;
