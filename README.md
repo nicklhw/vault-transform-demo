@@ -8,6 +8,13 @@ export VAULT_LICENSE=$(cat ~/Downloads/vault.hclic)
 
 # Start all containers and minikube
 make all
+
+# open demo-ui
+make ui
+
+# Login to Vault as admin
+export VAULT_ADDR=http://localhost:8200
+vault login --method=userpass username=admin password=passw0rd
 ```
 
 # Useful commands
@@ -27,6 +34,15 @@ make run-api
 
 # build demo-api app docker image
 make build-docker-api
+
+# build demo-ui spring boot app
+make build-ui
+
+# run demo-api spring boot app locally
+make run-ui
+
+# build demo-api app docker image
+make build-docker-ui
 ```
 
 # Reference

@@ -26,7 +26,7 @@ logs:
     && docker-compose logs -f
 
 ui:
-	open http://localhost:7070
+	open http://localhost:7071
 
 build-api:
 	cd demo-api \

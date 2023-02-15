@@ -7,306 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "Get All Users",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-all-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-all-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Decryt User - Transit",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-all-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-all-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Decode User - Simplest Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/decode?username=dennis&flag=simplest-transformation",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"decode"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "dennis"
-						},
-						{
-							"key": "flag",
-							"value": "simplest-transformation"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Decode User - Simple Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/decode?username=john&flag=simple-transformation",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"decode"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "john"
-						},
-						{
-							"key": "flag",
-							"value": "simple-transformation"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Decode User - Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/decode?username=jane&flag=transformation",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"decode"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "jane"
-						},
-						{
-							"key": "flag",
-							"value": "transformation"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User - Simplest Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-simplest-transformed-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-simplest-transformed-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User - Simple Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-simple-transformed-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-simple-transformed-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User - Transform",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-transformed-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-transformed-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User - Transit",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/api/v1/get-encrypted-users",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"get-encrypted-users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Add User - Transit",
 			"request": {
 				"method": "POST",
@@ -323,7 +23,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/v1/transit/add-user?username=nickwong&password=secret&email=nick.wong@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"raw": "{{host}}/api/v1/transit/add-user?username=nick&password=secret&email=nick.wong@hashicorp.com&creditcard=1111-2222-3333-4444",
 					"host": [
 						"{{host}}"
 					],
@@ -336,7 +36,7 @@
 					"query": [
 						{
 							"key": "username",
-							"value": "nickwong"
+							"value": "nick"
 						},
 						{
 							"key": "password",
@@ -497,6 +197,550 @@
 							"key": "creditcard",
 							"value": "1111-2222-3333-4444"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Default Tokenization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/default-tokenization/add-user?username=jack&password=secret&email=jack.bauer@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"default-tokenization",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jack"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "jack.bauer@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User - Convergent Tokenization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/convergent-tokenization/add-user?username=larry&password=secret&email=larry.anderson@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"convergent-tokenization",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "larry"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "larry.anderson@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-all-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-all-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decryt User - Transit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decrypt?username=nick",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decrypt"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "nick"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Simplest Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=dennis&flag=simplest-transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "dennis"
+						},
+						{
+							"key": "flag",
+							"value": "simplest-transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Simple Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=john&flag=simple-transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "john"
+						},
+						{
+							"key": "flag",
+							"value": "simple-transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=jane&flag=transformation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jane"
+						},
+						{
+							"key": "flag",
+							"value": "transformation"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Default Tokenization",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=jack&flag=default-tokenization",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jack"
+						},
+						{
+							"key": "flag",
+							"value": "default-tokenization"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decode User - Convergent Tokenization",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/decode?username=larry&flag=convergent-tokenization",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"decode"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "larry"
+						},
+						{
+							"key": "flag",
+							"value": "convergent-tokenization"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Simplest Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-simplest-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-simplest-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Simple Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-simple-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-simple-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Transform",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-transformed-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-transformed-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Default Tokenization",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-default-tokenization-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-default-tokenization-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Convergent Tokenization",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-convergent-tokenization-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-convergent-tokenization-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Transit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/get-encrypted-users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-encrypted-users"
 					]
 				}
 			},
