@@ -1,4 +1,4 @@
-# Vault Namespace Demo
+# Vault Transform Secrets Engine Demo
 
 ![Demo Architecture](assets/vault_transform_demo.svg)
 
