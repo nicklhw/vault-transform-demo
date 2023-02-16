@@ -1,5 +1,7 @@
 # Vault Namespace Demo
 
+![Demo Architecture](assets/vault_transform_demo.svg)
+
 # Run
 
 ```shell
