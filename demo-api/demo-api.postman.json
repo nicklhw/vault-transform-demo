@@ -203,7 +203,7 @@
 			"response": []
 		},
 		{
-			"name": "Add User - Default Tokenization",
+			"name": "Add User 1 - Default Tokenization",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -252,7 +252,56 @@
 			"response": []
 		},
 		{
-			"name": "Add User - Convergent Tokenization",
+			"name": "Add User 2 - Default Tokenization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/default-tokenization/add-user?username=jack2&password=secret&email=jack.bauer@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"default-tokenization",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "jack2"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "jack.bauer@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User 1 - Convergent Tokenization",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -282,6 +331,55 @@
 						{
 							"key": "username",
 							"value": "larry"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "email",
+							"value": "larry.anderson@hashicorp.com"
+						},
+						{
+							"key": "creditcard",
+							"value": "1111-2222-3333-4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User 2 - Convergent Tokenization Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/convergent-tokenization/add-user?username=larry2&password=secret&email=larry.anderson@hashicorp.com&creditcard=1111-2222-3333-4444",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"convergent-tokenization",
+						"add-user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "larry2"
 						},
 						{
 							"key": "password",
