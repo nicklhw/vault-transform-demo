@@ -10,6 +10,7 @@ networks:
 services:
   vault:
     profiles: ["backend"]
+    depends_on: [ mysql ]
     image: hashicorp/vault-enterprise:latest
     restart: always
     volumes:
