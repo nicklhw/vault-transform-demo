@@ -44,8 +44,8 @@ vault secrets enable database
 vault write database/roles/demoapp \
 db_name=mysql-demo-db \
 creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT,INSERT,UPDATE ON demo.users_tokenization TO '{{name}}'@'%';" \
-default_ttl="5h" \
-max_ttl="5h"
+default_ttl="8h" \
+max_ttl="8h"
 
 vault write database/config/mysql-demo-db \
 plugin_name=mysql-legacy-database-plugin \

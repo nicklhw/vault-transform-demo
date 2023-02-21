@@ -14,7 +14,7 @@ vault auth enable -max-lease-ttl=1h approle
 vault write auth/approle/role/transform-demo-api \
 secret_id_ttl=10m \
 token_ttl=30m \
-token_max_ttl=1h \
+token_max_ttl=8h \
 policies=payments
 
 tput setaf 12 && echo "############## Fetch approle RoleID ##############"
