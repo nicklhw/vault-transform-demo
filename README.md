@@ -2,6 +2,17 @@
 
 ![Demo Architecture](assets/vault_transform_demo.svg)
 
+- demo-ui is a simple single page application built with Spring Boot
+- demo-api is a Spring Boot application that exposes a REST API for the demo-ui.
+  - It calls the Vault agent to transform sensitive data and store the transformed data in MySQL
+  - It uses the Spring Cloud Vault library to integrate with the Vault API, i.e. to retrieve dynamic database credentials.
+- Vault agent act as a sidecar proxy here to retrieve secrets from Vault. 
+  - Auto-auth is used to handle the login to Vault and the renewal of the Vault auth token. Using auto-auth removes the responsibility of managing the auth token from the client application, making it easier for application to consume Vault’s API.
+  - Vault agent is optional in this case since Spring Cloud Vault library has the ability to authenticate to Vault.
+- On the Vault server side 3 secrets engines are enabled: database, transform, and transit
+  - The database secrets engine integrates with MySQL to generate dynamic DB credentials for the demo-app
+  - The transform secrets engine is configured to use MySQL as an external token storage for tokenization
+  
 # Run
 
 ```shell
