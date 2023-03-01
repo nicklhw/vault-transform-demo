@@ -19,7 +19,7 @@
 # export Vault license
 export VAULT_LICENSE=$(cat ~/Downloads/vault.hclic)     
 
-# Start all containers and minikube
+# Start all containers
 make all
 
 # open demo-ui
