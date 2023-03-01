@@ -13,7 +13,7 @@
   - The database secrets engine integrates with MySQL to generate dynamic DB credentials for the demo-app
   - The transform secrets engine is configured to use MySQL as an external token storage for tokenization
 
-## Prerequisites
+# Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
   
 # Run
