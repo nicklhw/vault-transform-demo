@@ -12,6 +12,9 @@
 - On the Vault server side 3 secrets engines are enabled: database, transform, and transit
   - The database secrets engine integrates with MySQL to generate dynamic DB credentials for the demo-app
   - The transform secrets engine is configured to use MySQL as an external token storage for tokenization
+
+## Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
   
 # Run
 
