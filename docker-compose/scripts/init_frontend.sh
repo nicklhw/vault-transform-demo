@@ -24,7 +24,7 @@ echo -n $ROLE_ID > ../vault-agent/role_id
 
 tput setaf 12 && echo "############## Fetch approle SecretID ##############"
 
-SECRET_ID=$(vault write -f -format=json auth/approle/role/transform-demo-api/secret-id | jq -r .data.secret_id)
+SECRET_ID=$(vault write -wrap-ttl=60s -force -format=json auth/approle/role/transform-demo-api/secret-id | jq -r .wrap_info.token)
 echo -n $SECRET_ID > ../vault-agent/secret_id
 
 tput setaf 12 && echo "############## Start Vault agent and Transform demo app ##############"; tput sgr0
