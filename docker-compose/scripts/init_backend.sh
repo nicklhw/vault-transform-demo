@@ -39,6 +39,8 @@ vault audit enable file file_path=/var/log/vault/vault-audit.log mode=744
 
 tput setaf 12 && echo "############## Setup Database secret engine ##############"
 
+sleep 10
+
 vault secrets enable database
 
 vault write database/roles/demoapp \
