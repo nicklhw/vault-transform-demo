@@ -3,7 +3,7 @@
 
 export VAULT_ADDR := http://localhost:8200
 
-all: clean up-detach init
+all: build-api build-ui clean up-detach init
 
 up-detach:
 	cd docker-compose \
@@ -15,6 +15,7 @@ init:
 
 clean:
 	cd docker-compose \
+	&& docker-compose --profile frontend down --volumes --remove-orphans \
 	&& docker-compose down --volumes --remove-orphans \
 	&& rm -f ./scripts/vault.json
 
